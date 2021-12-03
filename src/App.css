@@ -20,10 +20,35 @@ header {
   position: absolute;
   top: 1rem;
 }
+@media (min-width: 640px) {
+  .welcome {
+    font-size: 0.85rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 960px) {
+  .welcome {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1200px) {
+  .welcome {
+    font-size: 2.3rem;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+}
 footer {
   position: absolute;
   bottom: 1rem;
   color: lightgray;
   display: flex;
-  justify-content: be;
+  justify-content: center;
+  place-items: center;
 }
