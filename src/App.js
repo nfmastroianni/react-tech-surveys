@@ -23,7 +23,7 @@ function App() {
       country_code: "ES",
     },
     {
-      code: "pr",
+      code: "pt",
       name: "Portuguese",
       country_code: "BR",
     },
@@ -33,9 +33,11 @@ function App() {
       <div className="background--custom uk-flex uk-flex-center uk-flex-middle">
         <header>
           <div className="uk-inline">
-            <button className="uk-button uk-button-danger" type="button">
+            <button className="uk-button " type="button">
               {language === "en" && <ReactCountryFlag countryCode="US" />}
-              {language}
+              {language === "es" && <ReactCountryFlag countryCode="ES" />}
+              {language === "pt" && <ReactCountryFlag countryCode="BR" />}
+              {t("change_language")}
             </button>
             <div data-uk-dropdown="mode: click">
               <ul>

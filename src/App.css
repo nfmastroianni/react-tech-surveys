@@ -25,4 +25,5 @@ footer {
   bottom: 1rem;
   color: lightgray;
   display: flex;
+  justify-content: be;
 }
