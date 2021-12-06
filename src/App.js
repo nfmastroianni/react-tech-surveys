@@ -56,24 +56,24 @@ function App() {
     <div style={{ position: "relative" }}>
       <div className="background--custom uk-flex uk-flex-center uk-flex-middle">
         <header>
-          <div className="uk-inline" style={{ minWidth: "228px" }}>
+          <div className="uk-inline" style={{ minWidth: "237px" }}>
             <button
               className="uk-button uk-button-default"
               type="button"
-              style={{ minWidth: "228px", color: "white" }}
+              style={{ minWidth: "237px", color: "white" }}
             >
               {language === "en" && (
-                <span className="flag-icon flag-icon-us"></span>
+                <span className="flag-icon flag-icon-us uk-margin-right"></span>
               )}
               {language === "es" && (
-                <span className="flag-icon flag-icon-es"></span>
+                <span className="flag-icon flag-icon-es uk-margin-right"></span>
               )}
               {language === "pt" && (
-                <span className="flag-icon flag-icon-br"></span>
+                <span className="flag-icon flag-icon-br uk-margin-right"></span>
               )}
               {t("change_language")}
             </button>
-            <div data-uk-dropdown="mode: hover" style={{ minWidth: "228px" }}>
+            <div data-uk-dropdown="mode: hover" style={{ minWidth: "237px" }}>
               <ul style={{ margin: "0", padding: "0" }}>
                 {languages.map((lang) => {
                   return (
@@ -91,6 +91,7 @@ function App() {
                           justifyContent: "center",
                           alignItems: "center",
                           columnGap: "1rem",
+                          marginTop: "1rem",
                         }}
                         onClick={() => {
                           handleClick(lang.code);
@@ -139,7 +140,7 @@ function App() {
             />
           </a>{" "}
           <p style={{ marginLeft: "1rem", textAlign: "center" }}>
-            {t("organization")}
+            <span className="uk-text-bold">{t("organization")}</span>
             <br />"{t("slogan")}"
           </p>
         </footer>
