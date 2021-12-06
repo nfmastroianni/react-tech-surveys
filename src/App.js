@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
-import ReactCountryFlag from "react-country-flag";
+import "flag-icon-css/css/flag-icons.min.css";
 import "./App.css";
 
 function App() {
@@ -37,16 +37,19 @@ function App() {
       code: "en",
       name: "English",
       country_code: "US",
+      flag_code: "us",
     },
     {
       code: "es",
       name: "Español",
       country_code: "ES",
+      flag_code: "es",
     },
     {
       code: "pt",
       name: "Portuguese",
       country_code: "BR",
+      flag_code: "br",
     },
   ];
   return (
@@ -60,22 +63,13 @@ function App() {
               style={{ minWidth: "228px", color: "white" }}
             >
               {language === "en" && (
-                <ReactCountryFlag
-                  countryCode="US"
-                  style={{ fontSize: "2rem" }}
-                />
+                <span className="flag-icon flag-icon-us"></span>
               )}
               {language === "es" && (
-                <ReactCountryFlag
-                  countryCode="ES"
-                  style={{ fontSize: "2rem" }}
-                />
+                <span className="flag-icon flag-icon-es"></span>
               )}
               {language === "pt" && (
-                <ReactCountryFlag
-                  countryCode="BR"
-                  style={{ fontSize: "2rem" }}
-                />
+                <span className="flag-icon flag-icon-br"></span>
               )}
               {t("change_language")}
             </button>
@@ -102,10 +96,9 @@ function App() {
                           handleClick(lang.code);
                         }}
                       >
-                        <ReactCountryFlag
-                          countryCode={lang.country_code}
-                          style={{ fontSize: "2rem" }}
-                        />
+                        <span
+                          className={`flag-icon flag-icon-${lang.flag_code}`}
+                        ></span>
                         <p style={{ margin: 0, padding: 0 }}>{lang.name}</p>
                       </button>
                     </li>
@@ -131,7 +124,7 @@ function App() {
           </div>
           <a
             href={surveyLink}
-            className="uk-button uk-button-default"
+            className="uk-button uk-button-default uk-button-large"
             style={{ color: "white" }}
           >
             {t("action")}
