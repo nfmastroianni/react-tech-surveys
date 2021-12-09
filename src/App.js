@@ -12,10 +12,13 @@ function App() {
   );
   useEffect(() => {
     setLanguage(cookies.get("i18next"));
+    console.log("language is: ", language);
     if (cookies.get("i18next") === "en") {
       setSurveyLink("https://forms.gle/fEZCW1XpYW6sbiqz7");
     } else if (cookies.get("i18next") === "es") {
       setSurveyLink("https://forms.gle/Uc9DLBnZmcTLmjJU8");
+    } else if (cookies.get("i18next") === "ht") {
+      setSurveyLink("https://forms.gle/7rAnbTHaydqF7xNY7");
     } else {
       setSurveyLink("https://forms.gle/YQuU2mewp1sYvtTD6");
     }
@@ -27,6 +30,8 @@ function App() {
       setSurveyLink("https://forms.gle/fEZCW1XpYW6sbiqz7");
     } else if (e === "es") {
       setSurveyLink("https://forms.gle/Uc9DLBnZmcTLmjJU8");
+    } else if (e === "ht") {
+      setSurveyLink("https://forms.gle/7rAnbTHaydqF7xNY7");
     } else {
       setSurveyLink("https://forms.gle/YQuU2mewp1sYvtTD6");
     }
@@ -44,6 +49,12 @@ function App() {
       name: "Español",
       country_code: "ES",
       flag_code: "es",
+    },
+    {
+      code: "ht",
+      name: "Haitian Creole",
+      country_code: "HT",
+      flag_code: "ht",
     },
     {
       code: "pt",
@@ -68,6 +79,9 @@ function App() {
               {language === "es" && (
                 <span className="flag-icon flag-icon-es uk-margin-right"></span>
               )}
+              {language === "ht" && (
+                <span className="flag-icon flag-icon-ht uk-margin-right"></span>
+              )}
               {language === "pt" && (
                 <span className="flag-icon flag-icon-br uk-margin-right"></span>
               )}
@@ -77,11 +91,7 @@ function App() {
               <ul style={{ margin: "0", padding: "0" }}>
                 {languages.map((lang) => {
                   return (
-                    <li
-                      key={lang.name}
-                      style={{ listStyle: "none" }}
-                      className=""
-                    >
+                    <li key={lang.name} style={{ listStyle: "none" }}>
                       <button
                         className="uk-button uk-button-text"
                         disabled={language === lang.code}
